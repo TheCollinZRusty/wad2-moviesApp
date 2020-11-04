@@ -115,6 +115,7 @@ storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
 
 storiesOf("Movie Details Page/MovieHeader", module).add("default", () => (
   <MovieHeader movie={sample} 
-  />
+  
+/>
 ));
 
