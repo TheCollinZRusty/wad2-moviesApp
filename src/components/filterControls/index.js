@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from "react";
+import { getGenres } from "../../api/tmdb-api";
 import "./filterControls.css";
 
 const FilterControls = props => {
   const [genres, setGenres] = useState([{ id: '0', name: "All" }])
-
   useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
-        process.env.REACT_APP_TMDB_KEY
-    )
-      .then(res => res.json())
-      .then(json => json.genres)
-      .then(apiGenres => {
-        setGenres([genres[0], ...apiGenres]);
-      });
+    getGenres().then(allGenres => {
+      setGenres([genres[0], ...allGenres]);
+    });
   }, []);
+  // useEffect(() => {
+  //   fetch(
+  //     "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
+  //       process.env.REACT_APP_TMDB_KEY
+  //   )
+  //     .then(res => res.json())
+  //     .then(json => json.genres)
+  //     .then(apiGenres => {
+  //       setGenres([genres[0], ...apiGenres]);
+  //     });
+  // }, []);
 
   const handleChange = (e, type, value) => {
     e.preventDefault()
