@@ -10,6 +10,11 @@ const FilterControls = props => {
     });
   }, []);
   // useEffect(() => {
+  //   getGenres().then(allGenres => {
+  //     setGenres([genres[0], ...allGenres]);
+  //   });
+  // }, []);
+  // useEffect(() => {
   //   fetch(
   //     "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
   //       process.env.REACT_APP_TMDB_KEY
