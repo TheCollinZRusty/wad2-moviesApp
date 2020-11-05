@@ -34,6 +34,11 @@ describe("Movie Details Page", () => {
   it("should display movie title in the page header", () => {
     cy.get("h2").contains(movie.title);
   });
+
+//   it("should display a movie poster", () => {
+//     cy.get('img').should('be.visible');
+//   });
+
   it("should display the movie's details", () => {
     cy.get("h4").contains("Overview");
     cy.get("h4").next().contains(movie.overview);
