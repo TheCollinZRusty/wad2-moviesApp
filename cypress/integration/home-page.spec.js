@@ -1,17 +1,3 @@
-// describe("Home Page", () => {
-//     beforeEach(() => {
-//       cy.visit("/");
-//     });
-  
-//     describe("Base test", () => {
-//       it("displays page header", () => {
-//         cy.get("h2").contains("No. Movies");
-//         cy.get(".badge").contains(20);
-//       });
-//     })
-//   })
-
-
   let movies;    // List of movies from TMDB
 
 // Utility functions
@@ -21,6 +7,9 @@ const filterByTitle = (movieList, string) =>
 const filterByGenre = (movieList, genreId) =>
   movieList.filter((m) => m.genre_ids.includes(genreId));
 
+// const filterByTitle = (movieList, titleId) =>
+//   movieList.filter((m) => m.genre_ids.includes(titleId));
+  
 describe("Home Page ", () => {
   before(() => {
     // Get movies from TMDB and store in movies variable.
@@ -75,6 +64,12 @@ describe("Home Page ", () => {
           .find(".card-title")
           .should("have.text", matchingMovies[index].title);
         })
+      })
+      it("should display no movies when exceptional characters are entered", () => {
+        const searchString = "xyz";
+        const matchingMovies = filterByTitle(movies, searchString);
+        cy.get("input").clear().type(searchString);
+        cy.get(".card").should("have.length", null);
       })
     })
     describe("By movie genre" ,() => {
