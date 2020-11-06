@@ -11,13 +11,13 @@ const MovieCard = props => {
       }
   return (
     <div className="col-sm-3">
-               <div className="card-footer">
-          <button type="button" className="btn w-100 btn-primary"
+               {/* <div className="card-footer"> */}
+          {/* <button type="button" className="btn w-100 btn-primary"
                 onClick={handleAddToFavorites}
                 >
             Add to Favorites
-          </button>
-        </div>
+          </button> */}
+        {/* </div> */}
       <div className="card  bg-white">
       <Link to={`/movies/${props.movie.id}`}>
         <img
