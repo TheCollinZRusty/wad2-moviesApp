@@ -33,13 +33,13 @@ const SiteHeader = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link Favourite text-white" to="/movies/favorites">
-              Favorites
+            <Link className="nav-link text-white" to="/movies/Upcoming">
+              Upcoming
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white" to="/movies/upcoming">
-              Upcoming
+            <Link className="nav-link text-white" to="/movies/favorites">
+              Favorites
             </Link>
           </li>
         </ul>

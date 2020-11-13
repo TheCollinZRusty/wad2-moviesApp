@@ -42,7 +42,9 @@ const MovieCard = props => {
           </p>
         </div>
         <div className="card-footer">
-          <button type="button" className="btn w-100 btn-primary">
+           <button type="button" className="btn w-100 btn-primary"
+                onClick={handleAddToFavorites}
+                >
             Add to Favorites
           </button>
         </div>

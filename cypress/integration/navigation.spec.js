@@ -40,11 +40,11 @@ describe("Navigation", () => {
       cy.get("h2").contains("Favorite Movies");
       cy.get("nav").find("li").eq(1).find("a").click();
       cy.url().should("not.include", `/favorites`);
-      cy.get("h2").contains("No. Movies");
-      cy.get("nav").find("li").eq(2).find("a").click();
+      cy.get("h2").contains("Upcoming Movies");
+      cy.get("nav").find("li").eq(0).find("a").click();
       cy.get("nav.navbar-brand").find("a").click();
       cy.url().should("not.include", `/favorites`);
-      cy.get("h2").contains("No. Movies");
+      cy.get("h2").contains("Discover Movies");
     });
   });
    describe("From the Movie Details page ", () => {
@@ -81,13 +81,13 @@ describe("Navigation", () => {
       cy.get(".card").eq(1).find("img").click();
       cy.get("svg[data-icon=arrow-circle-left]").click();
       cy.url().should("not.include", `/movies`);
-      cy.get("h2").contains("No. Movies");
+      cy.get("h2").contains("Discover Movies");
     });
     it("should navigate from favorites page to movie details and back", () => {
         cy.get(".card").eq(1).find("img").click();
         cy.get("svg[data-icon=arrow-circle-left]").click();
         cy.url().should("not.include", `/movies`);
-        cy.get("h2").contains("No. Movies");
+        cy.get("h2").contains("Discover Movies");
     });
   });
 });
