@@ -1,40 +1,15 @@
-import React, { useState, useEffect } from "react";
-import StubAPI from "../api/stubAPI";
+import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage'
-import { getMovies } from "../api/tmdb-api";
+import {MoviesContext} from '../contexts/moviesContext'
 
 const MovieListPage = () => {
-  const [movies, setMovies] = useState([]);
-//   useEffect(() => {
-//     fetch(
-//       `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
-//     )
-//       .then(res => res.json())
-//       .then(json => json.results )
-//       .then(movies => {
-//         setMovies(movies);
-//       });
-//   }, []);
-useEffect(() => {
-    getMovies().then(movies => {
-      setMovies(movies);
-    });
-  }, []);
-  const addToFavorites = movieId => {
-    setMovies(movies => {
-      const index = movies.map(m => m.id).indexOf(movieId);
-      StubAPI.add(movies[index]);
-      let newMoviesState = [...movies]
-      newMoviesState.splice(index, 1);
-      return newMoviesState;
-    });
-  };
+  const context = useContext(MoviesContext) 
 
   return (
-      <PageTemplate
-        title='Discover Movies'
-        movies={movies}
-        buttonHandler={addToFavorites}
+      <PageTemplate 
+        title='No. Movies'
+        movies={context.movies}
+        buttonHandler={context.addToFavorites}
       />
   );
 };
