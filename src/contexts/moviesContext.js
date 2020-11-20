@@ -21,6 +21,11 @@ const reducer = (state, action) => {
               : m
           ),
         };
+      // Completed in next section
+      break;
+    default:
+      return state;
+  }
 };
 
 const MoviesContextProvider = (props) => {
@@ -34,7 +39,6 @@ const MoviesContextProvider = (props) => {
   const addReview = (movie, review) => {
     dispatch({ type: "add-review", payload: { movie, review } });
   }; 
-  
   useEffect(() => {
     getMovies().then((movies) => {
       dispatch({ type: "load", payload: { movies } });
