@@ -13,6 +13,7 @@ import UpcomingMoviesPage from "./pages/UpcomingMoviePage"
 import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
+import PopularMoviePage from './pages/PopularMoviePage'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
           <Route exact path="/movies/watchlist" component={WatchListMoviesPage} />
           <Route exact path="/movies/Upcoming" component={UpcomingMoviesPage} />
+          <Route exact path="/movies/Popular" component={PopularMoviePage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />

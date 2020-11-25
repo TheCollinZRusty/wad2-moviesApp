@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies, getUpcomingMovies } from "../api/tmdb-api";
+import { getMovies, getUpcomingMovies, getPopularMovies, getTrendingMovies } from "../api/tmdb-api";
 
 export const MoviesContext = createContext(null);
 
@@ -10,7 +10,7 @@ const reducer = (state, action) => {
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
-        upcoming: [...state.upcoming],
+        upcoming: [...state.upcoming], popular: [...state.popular]
       };
 
       case "add-watchlist":
@@ -18,14 +18,19 @@ const reducer = (state, action) => {
           movies: state.movies.map((m) =>
             m.id === action.payload.movie.id ? { ...m, watchlist: true } : m
           ),
-          upcoming: [...state.upcoming],
+          upcoming: [...state.upcoming], popular: [...state.popular]
         };
 
     case "load":
-      return { movies: action.payload.movies, upcoming: [...state.upcoming] };
+      return {  movies: action.payload.movies, 
+                upcoming: [...state.upcoming], popular: [...state.popular] };
 
     case "load-upcoming":
-      return { upcoming: action.payload.movies, movies: [...state.movies] };
+      return { upcoming: action.payload.movies, movies: [...state.movies], popular: [...state.popular] };
+
+
+    case "load-popular":
+      return { popular: action.payload.movies, movies: [...state.movies], upcoming: [...state.upcoming] };
 
     case "add-review":
       return {
@@ -35,6 +40,7 @@ const reducer = (state, action) => {
             : m
         ),
         upcoming: [...state.upcoming],
+        popular: [...state.popular]
       };
     default:
       return state;
@@ -42,7 +48,7 @@ const reducer = (state, action) => {
 };
 
 const MoviesContextProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [] });
+  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [],popular: [] });
 
   const addToFavorites = (movieId) => {
     const index = state.movies.map((m) => m.id).indexOf(movieId);
@@ -63,6 +69,12 @@ const MoviesContextProvider = (props) => {
       dispatch({ type: "load", payload: { movies } });
     });
   }, []);
+  
+  useEffect(() => {
+    getPopularMovies().then((movies) => {
+      dispatch({ type: "load-popular", payload: { movies } });
+    });
+  }, []);
 
   useEffect(() => {
     getUpcomingMovies().then((movies) => {
@@ -75,6 +87,7 @@ const MoviesContextProvider = (props) => {
       value={{
         movies: state.movies,
         upcoming: state.upcoming,
+        popular: state.popular,
         addToFavorites: addToFavorites,
         addToWatchList: addToWatchList,
         addReview: addReview,
