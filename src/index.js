@@ -33,10 +33,11 @@ const App = () => {
           <MoviesContextProvider>     {/* NEW  */}
           <GenresContextProvider>
             <Switch>
-              <PrivateRoute exact path="/" component={HomePage} />
+              <PrivateRoute path="/login" component={Login} />
+              <PrivateRoute exact path="/home" component={HomePage} />
               {/* <Route path="/update-profile" component={UpdateProfile} /> */}
               <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
+              {/* <PrivateRoute path="/login" component={Login} /> */}
               {/* <Route path="/forgot-password" component={ForgotPassword} /> */}
               <Route exact path="/reviews/form" component={AddMovieReviewPage} />
               <Route path="/reviews/:id" component={MovieReviewPage} />
@@ -47,7 +48,7 @@ const App = () => {
               <Route exact path="/movies/Top_Rated" component={TopRatedMoviePage} />
               <Route exact path="/movies/Now_Playing" component={NowPlayingMoviePage} />
               <Route path="/movies/:id" component={MoviePage} />
-          <Redirect from="*" to="/" />
+          <Redirect from="*" to="/login" />
         </Switch>
         </GenresContextProvider>    {/* NEW */}
         </MoviesContextProvider>     {/* NEW */}
