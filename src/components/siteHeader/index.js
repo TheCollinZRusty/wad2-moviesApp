@@ -74,8 +74,8 @@ const SiteHeader = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-white bg-dark" to="/login">
-              Sign out
+            <Link className="nav-link text-white bg-dark" to="/Dashboard">
+              Dashboard
             </Link>
           </li>
         </ul>
