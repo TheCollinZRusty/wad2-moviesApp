@@ -28,6 +28,7 @@ describe("Movie Details Page", () => {
       })
   });
   beforeEach(() => {
+    cy.visit(`/home`);
     cy.visit(`/movies/${movie.id}`);
   });
 
