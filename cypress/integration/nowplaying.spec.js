@@ -1,4 +1,4 @@
-  let movies;    // List of movies from TMDB
+let now_playing;    // List of movies from TMDB
 
 // Utility functions
 const filterByTitle = (movieList, string) =>
@@ -10,32 +10,32 @@ const filterByGenre = (movieList, genreId) =>
 // const filterByTitle = (movieList, titleId) =>
 //   movieList.filter((m) => m.genre_ids.includes(titleId));
   
-describe("Home Page ", () => {
+describe("Now Playing", () => {
   before(() => {
     // Get movies from TMDB and store in movies variable.
     cy.request(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env(
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${Cypress.env(
         "TMDB_KEY"
-      )}&language=en-US&include_adult=false&include_video=false&page=1`
+      )}&language=en-US&include_adult=false&page=1`
     )
       .its("body")    // Take the body of HTTP response from TMDB
       .then((response) => {
-        movies = response.results
+        now_playing = response.results
       })
   })
   beforeEach(() => {
-    cy.visit("/home")
+    cy.visit("movies/Now_Playing")
   });
 
   describe("Base tests", () => {
     describe("Home Page", () => {
         beforeEach(() => {
-          cy.visit("/home");
+          cy.visit("movies/Now_Playing");
         });
       
         describe("Base test", () => {
           it("displays page header", () => {
-            cy.get("h2").contains("Movies");
+            cy.get("h2").contains("Now Playing");
             cy.get(".badge").contains(20);
           });
         })
@@ -45,29 +45,29 @@ describe("Home Page ", () => {
     describe("By movie title" ,() => {
       it("should display movies with 'p ' in the title", () => {
         const searchString = 'p'
-        const matchingMovies = filterByTitle(movies, searchString );
+        const matchingMovies = filterByTitle(now_playing, searchString );
         cy.get("input").clear().type(searchString) ;
-        cy.get(".card").should("have.length", matchingMovies.length);
         cy.get(".card").each(($card, index) => {
           cy.wrap($card)
           .find(".card-title")
           .should("have.text", matchingMovies[index].title);
         });
       })
-      it("should display movies with 'o' in the title", () => {
-        const searchString = "o";
-        const matchingMovies = filterByTitle(movies, searchString);
-        cy.get("input").clear().type(searchString);
-        cy.get(".card").should("have.length", matchingMovies.length);
+
+       it("should display movies with 'o' in the title", () => {
+        const searchString = 'o'
+        const matchingMovies = filterByTitle(now_playing, searchString );
+        cy.get("input").clear().type(searchString) ;
         cy.get(".card").each(($card, index) => {
           cy.wrap($card)
           .find(".card-title")
           .should("have.text", matchingMovies[index].title);
-        })
+        });
       })
+
       it("should display no movies when exceptional characters are entered", () => {
         const searchString = "xyz";
-        const matchingMovies = filterByTitle(movies, searchString);
+        const matchingMovies = filterByTitle(now_playing, searchString);
         cy.get("input").clear().type(searchString);
         cy.get(".card").should("have.length", null);
       })
@@ -76,9 +76,8 @@ describe("Home Page ", () => {
         it("should display movies with the specified genre only", () => {
           const selectedGenreId = 35;
           const selectedGenreText = "Comedy";
-          const matchingMovies = filterByGenre(movies, selectedGenreId);
+          const matchingMovies = filterByGenre(now_playing, selectedGenreId);
           cy.get("select").select(selectedGenreText); 
-          cy.get(".card").should("have.length", matchingMovies.length);
           cy.get(".card").each(($card, index) => {
             cy.wrap($card)
               .find(".card-title")
@@ -91,9 +90,8 @@ describe("Home Page ", () => {
         it("should display movies with the specified genre only", () => {
           const selectedGenreId = 35;
           const selectedGenreText = "Comedy";
-          const matchingMovies = filterByGenre(movies, selectedGenreId);
+          const matchingMovies = filterByGenre(now_playing, selectedGenreId);
           cy.get("select").select(selectedGenreText); 
-          cy.get(".card").should("have.length", matchingMovies.length);
           cy.get(".card").each(($card, index) => {
             cy.wrap($card)
               .find(".card-title")
@@ -102,9 +100,8 @@ describe("Home Page ", () => {
         });
         it("should display movies with 'p ' in the title", () => {
             const searchString = 'p'
-            const matchingMovies = filterByTitle(movies, searchString );
+            const matchingMovies = filterByTitle(now_playing, searchString );
             cy.get("input").clear().type(searchString) ;
-            cy.get(".card").should("have.length", matchingMovies.length);
             cy.get(".card").each(($card, index) => {
               cy.wrap($card)
               .find(".card-title")

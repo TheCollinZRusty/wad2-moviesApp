@@ -7,12 +7,13 @@ import "./siteHeader.css";
 const SiteHeader = () => {
   return (
     
-    <nav className="navbar  navbar-light fixed-top  bg-primary ">
-      <FontAwesomeIcon
+    <nav className="navbar  navbar-light fixed-top  background-color:#ff9e1b; ">
+      {/* <FontAwesomeIcon
         className="navbar-text text-light"
         icon={["fas", "film"]}
         size="3x"
-      />
+      /> */}
+      <img class="crop" src="TheMovieDatabase.png" alt="Italian Trulli"></img>
       <nav className="navbar-brand text-white">
         <Link className=" text-white " to="/">
           The Movie Database 
