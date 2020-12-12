@@ -16,6 +16,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import PopularMoviePage from './pages/PopularMoviePage'
+import SplashPage from './pages/SplashPage'
 
 import Dashboard from "./components/firebase/Dashboard";
 import Login from "./components/firebase/Login"
@@ -44,7 +45,7 @@ const App = () => {
               <PrivateRoute path="/dashboard" component={Dashboard} />
               <Route path="/forgot-password" component={ForgotPassword} />
               <PrivateRoute exact path="/home" component={HomePage} />
-
+              <PrivateRoute exact path="/welcome" component={SplashPage} />
               <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />
               <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
               <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
