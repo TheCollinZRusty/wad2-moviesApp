@@ -40,6 +40,12 @@
     max-width: 600px;
     animation: change 0.5s 0.5s forwards;
   }
+
+  .Link{
+    flex-wrap: wrap;
+    max-width: 600px;
+    animation: change 0.5s 0.5s forwards;
+  }
   
   .title {
     margin: 0;

@@ -10,11 +10,8 @@ export default function SplashPage() {
     <h1 class="title">The Movie Database</h1>
     <div class="text">For the movie lovers</div>
   </header>
-  {/* <footer class="footer">
-    <a href="#" class="ripple">Enter</a>
-  </footer> */}
   <Link to="/home" class="footer">
-            Update Profile
+    <a href="#" class="ripple">Enter</a>
   </Link>
   <div class="wave"></div>
   <div class="wave wave2"></div>
