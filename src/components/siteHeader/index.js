@@ -34,6 +34,11 @@ const SiteHeader = () => {
       /> */}
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
+        <li className="nav-item">
+            <Link className="nav-link text-white bg-dark" to="/welcome">
+              Welcome
+            </Link>
+          </li>
           <li className="nav-item">
             <Link className="nav-link text-white bg-dark" to="/home">
               Home

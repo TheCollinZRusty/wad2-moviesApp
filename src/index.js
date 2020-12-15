@@ -16,7 +16,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import PopularMoviePage from './pages/PopularMoviePage'
-import SplashPage from './pages/SplashPage'
+import SplashPage from './pages/WelcomePage'
 
 import Dashboard from "./components/firebase/Dashboard";
 import Login from "./components/firebase/Login"
