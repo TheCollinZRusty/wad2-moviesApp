@@ -24,18 +24,18 @@ describe("Home Page ", () => {
       })
   })
   beforeEach(() => {
-    cy.visit("/")
+    cy.visit("/home")
   });
 
   describe("Base tests", () => {
     describe("Home Page", () => {
         beforeEach(() => {
-          cy.visit("/");
+          cy.visit("/home");
         });
       
         describe("Base test", () => {
           it("displays page header", () => {
-            cy.get("h2").contains("No. Movies");
+            cy.get("h2").contains("Movies");
             cy.get(".badge").contains(20);
           });
         })

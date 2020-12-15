@@ -6,13 +6,17 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.5.3",
     "dotenv": "^8.2.0",
+    "firebase": "^8.1.1",
     "react": "^16.11.0",
+    "react-bootstrap": "^1.4.0",
     "react-dom": "^16.11.0",
     "react-hook-form": "^3.29.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.1"
   },
   "scripts": {
     "storybook": "start-storybook -s ./public -p 6006 -c ./.storybook",
@@ -34,6 +38,7 @@
     "@storybook/addon-actions": "^5.3.1",
     "@storybook/react": "^5.3.1",
     "babel-loader": "^8.0.6",
-    "cypress": "^5.5.0"
+    "cypress": "^5.5.0",
+    "start-server-and-test": "^1.10.6"
   }
 }

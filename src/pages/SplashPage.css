@@ -1,0 +1,141 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  body {
+    font-size:12px;
+    font-family: Raleway, sans-serif;
+    overflow: hidden;
+    text-align: center;
+    line-height:1.4;
+    width:100%;
+  }
+  .code{
+    height:100vh;
+    position: relative;
+    background-color: #ff9e1b;
+  }
+  .content{
+    color:white;
+    font-weight:400;
+    padding: 0 2rem;
+  }
+  .code, .content, .footer {
+    display:flex;
+    align-items: center;
+    justify-content:center;
+  }
+  
+  .content, .footer {
+    width: 100%;
+    position: relative;
+    z-index:100;
+  }
+  .code, .content {
+    flex-direction: column;
+  }
+  .footer{
+    flex-wrap: wrap;
+    max-width: 600px;
+    animation: change 0.5s 0.5s forwards;
+  }
+
+  .Link{
+    flex-wrap: wrap;
+    max-width: 600px;
+    animation: change 0.5s 0.5s forwards;
+  }
+  
+  .title {
+    margin: 0;
+  }
+  
+  .footer a {
+    text-decoration:none;
+    width: 40%;
+    padding: 12px 18px;
+    margin: 20px auto 0 auto;
+    cursor: pointer;
+    color: white;
+    font-weight:400;
+    border: 2px solid;
+    border-radius: 99em;
+    outline:none;
+    transition: all 0.3s;
+  }
+  
+  .footer a:hover{
+    background-color: white;
+    color:#222;
+    font-weight:600;
+    border-color:white;
+    transform: scale(1.05);
+  }
+  
+  .text, .title {
+    backface-visibility:hidden;
+  }
+  
+  .title {
+    font-size:6.4rem;
+    font-weight: 400;
+    animation: change 0.5s forwards;
+    color:black;
+    text-shadow: 0 0 2px #e3e4e859;
+    opacity: 0;
+  }
+  
+  .text{
+    max-width: 50rem;
+    font-weight: 400;
+    padding: 2rem 0;
+    font-size:1.3rem;
+    color: white;
+    animation: change 0.5s 0.3s forwards;
+  }
+  
+  .wave {
+    opacity: 0.6;
+    position: absolute;
+    bottom: 40%;
+    left:50%;
+    width:6000px;
+    height:6000px;
+    background: #000;
+    margin-left: -3000px;
+    transform-origin:46%;
+    border-radius: 46%;
+    animation: wave 12s infinite linear;
+    pointer-events: none;
+  }
+  
+  .wave2{
+    animation: wave 28s infinite linear;
+    opacity: 0.3;
+  }
+  
+  .wave3{
+    animation: wave 20s infinite linear;
+    opacity: 0.3;
+  }
+  
+  @keyframes change {
+    from{
+      transform: translatey(2rem);
+      opacity:0;
+    }
+    to{
+      transform: translatey(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes wave {
+    from{
+      transform: rotate(0deg);
+    }
+    to{
+      transform: rotate(360deg)
+    }
+  }
