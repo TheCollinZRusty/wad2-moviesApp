@@ -179,7 +179,7 @@ Tests: cypress/integration/favourites.spec.js
 ## Testing.
 
 Cypress Dashboard URL: ... https://dashboard.cypress.io/projects/gtmos8/ .....
-
+Gitlab Dashboard URL: ... https://gitlab.com/owencollinsgtav/moviesapp-ci ...
 
 ---------------------------------
 
