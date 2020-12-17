@@ -19,26 +19,8 @@ const SiteHeader = () => {
           The Movie Database 
         </Link>
       </nav>
-      {/* <FontAwesomeIcon
-        className="navbar-text text-light"
-        icon={["fas", "video"]}
-        size="3x"
-      /> */}
-      {/* <span className="navbar-text text-light">
-        For the movie enthusiast !!
-      </span> */}
-      {/* <FontAwesomeIcon
-        className="navbar-text text-light"
-        icon={["fas", "film"]}
-        size="3x"
-      /> */}
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
-        <li className="nav-item">
-            <Link className="nav-link text-white bg-dark" to="/welcome">
-              Welcome
-            </Link>
-          </li>
           <li className="nav-item">
             <Link className="nav-link text-white bg-dark" to="/home">
               Home
@@ -49,11 +31,6 @@ const SiteHeader = () => {
               Upcoming
             </Link>
           </li>
-          {/* <li className="nav-item">
-            <Link className="nav-link text-white" to="/login">
-              Sign out
-            </Link>
-          </li> */}
           <li className="nav-item">
             <Link className="nav-link text-white bg-dark" to="/movies/Popular">
               Popular
