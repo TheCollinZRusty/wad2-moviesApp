@@ -11,7 +11,7 @@ const AddToFavoriteButton = ({ movie }) => {
   return (
     <button
       type="button"
-      className="btn w-100 btn-primary"
+      className="btn w-100 bg-dark"
       onClick={handleAddToFavorite}
     >
       Add to Favorites
